@@ -1,0 +1,91 @@
+.po_items_ho {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.po_item {
+    position: relative; /* Add relative positioning to .po_item */
+    display: flex;
+    width: 100%;
+    margin: 1rem auto;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.po_item.loaded {
+    opacity: 1;
+}
+
+.po_item img {
+    max-width: 400px;
+    min-width: 400px;
+}
+
+.po_item .content {
+    position: absolute; /* Change to absolute positioning */
+    top: 16%; /* Position at the top of .po_item */
+    left: 65%; /* Position at the center horizontally */
+    transform: translateX(-50%); /* Center .content horizontally */
+    height: 70%;
+    width: 70%;
+    background-color: var(--secondary-color);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1; /* Ensure .content appears above the image */
+    transition: all 0.6s ease;
+}
+
+.po_item.even .content:hover {
+    transform: translateX(50%) scale(1.05); /* Move up slightly and zoom in */
+    box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.25);
+}
+
+.po_item.odd .content:hover {
+    transform: translateX(-50%) scale(1.05); /* Move up slightly and zoom in */
+    box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.25);
+}
+
+.po_item .content p {
+    margin-bottom: 20px;
+}
+
+.po_item .content a {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    background: var(--bg-color);
+    border: solid 1px var(--text-color);
+    border-radius: 5px;
+    padding: 4px 8px;
+    text-align: center;
+    font-size: 1rem;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.content p, .content h1 {
+    color: var(--bg-color);
+}
+
+.po_item.even {
+    flex-direction: row-reverse;
+}
+
+.po_item.even img {
+    margin-left: 10px; /* Adjust margin between image and .content for even items */
+}
+
+.po_item.even .content {
+    margin-left: auto; /* Move .content to the right for even items */
+    margin-right: 10px; /* Adjust margin between .content and image for even items */
+    left: auto; /* Reset left position for absolute positioning */
+    right: 65%; /* Position at the center horizontally for even items */
+    transform: translateX(50%); /* Center .content horizontally for even items */
+}
+
+
+
